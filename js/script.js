@@ -29,6 +29,13 @@ async function getMovieData(e) {
     let newMovArray = [];
     const apiKey = "5eb8160a2b66b932e3381a55d388ba1a";
 
+    let chosenMov;
+    let moviePoster = '';
+    let movieTitle = '';
+    let movieRelease = '';
+    let movieOverView = '';
+
+
     console.log(userInputGenre);
     //Checking what genre selected with if statement
     if(parseInt(userInputGenre) < 1){
@@ -38,8 +45,32 @@ async function getMovieData(e) {
         const response = await fetch(url);
         const data = await response.json();
 
-        $('#results h1').html('');
-        $('#results h1').html(data.results[Math.floor(Math.random() * 20)]['title']);
+        chosenMov = data.results[Math.floor(Math.random() * 20)];
+        moviePoster = `https://image.tmdb.org/t/p/original/${chosenMov['poster_path']}`;
+        movieTitle = `${chosenMov['title']}`;
+        movieRelease = `${chosenMov['release_date']}`;
+        movieOverView = `${chosenMov['overview']}`;
+
+        $('#results h2').html('');
+        $('#results h4').html('');
+        $('#results p').html('');
+        $('.saveMovie').remove();
+        $('#moviePoster').attr("src",`${moviePoster}`);
+        $('#results h2').html(movieTitle);
+        $('#results h4').html(`Released: ${movieRelease}`);
+        $('#results p').html(movieOverView);
+        const trailer = $(`<a href="https://www.youtube.com/results?search_query=${movieTitle.split("+")}+${movieRelease}+movie+trailer" target="_blank">Watch Trailer</a><br><br>`);
+        $('#results').append(trailer);
+
+        const saveBtn = $('<button class="saveMovie">Save Movie</button>');
+        $('#results').append(saveBtn); 
+        saveBtn.click(function(){
+            let newLiMovie = $('<li></li>');
+            newLiMovie.html(`Title: ${movieTitle}<br>Overview: ${movieOverView}<br><a href="https://www.youtube.com/results?search_query=${movieTitle.split("+")}+${movieRelease}+movie+trailer" target="_blank">Trailer</a><br><br>`)
+            $('#movieList').append(newLiMovie);
+            return
+        });
+
     } else {
         for(x=0; x<10; x++){
             //finding a random starting page then moving 5 up from that.
@@ -68,8 +99,15 @@ async function getMovieData(e) {
         } else {
             //if a match is found we choose a random one to show them
             //first we clear the content that may have been there prior 
-            $('#results h1').html('');
-            $('#results h1').html(newMovArray[Math.floor(Math.random() * newMovArray.length)]['title']);
+            let chosenMov = newMovArray[Math.floor(Math.random() * newMovArray.length)];
+
+            $('#results h2').html('');
+            $('#results h4').html('');
+            $('#results p').html('');
+            $('#moviePoster').attr("src",`https://image.tmdb.org/t/p/original${chosenMov['poster_path']}`);
+            $('#results h2').html(chosenMov['title']);
+            $('#results h4').html(`Released: ${chosenMov['release_date']}`);
+            $('#results p').html(chosenMov['overview']);
         }
     };
 
