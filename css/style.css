@@ -28,6 +28,32 @@ main {
     border-radius: 5px;
 }
 
+@media only screen and (max-width: 1200px){
+    main {
+        width: 95%;
+    }
+
+    body {
+        margin: 3% 0 0 5%;
+    }
+}
+
+@media only screen and (max-width: 850px){
+	main {
+        padding: 5px;
+    }
+
+    #results img {
+        width: cover;
+        margin: 5px 0 0 30%;
+    }
+
+    body {
+        margin: 3% 0 0 1.5%;
+    }
+
+}
+
 form input {
     margin: 0 0 0 5px; 
 }
