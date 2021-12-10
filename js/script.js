@@ -51,11 +51,11 @@ async function getMovieData(e) {
     const addEmailButton = () => {
         let listString = "";
         for(x=0; x<emailList.length; x++){
-            listString += "Title: " + emailList[x]['title']; 
+            listString += "Title: " + emailList[x]['title'] + " "; 
             listString += "Overview: " + emailList[x]['overview'] + " [|] ";
         }
         const emailLink = $(`<a id="emailList" href="mailto:ADD EMAIL?&subject=Movie List&body=${listString}" target="_blank">Email List</a>`);
-        $('#movieList').append(emailLink);
+        $('#movieList').prepend(emailLink);
         console.log(emailList);
     }
 
@@ -134,7 +134,7 @@ async function getMovieData(e) {
         let newLiMovie = $('<li></li>');
         $('#emailList').remove();
 
-        newLiMovie.html(`<img id="savedMovie" src=${moviePoster} width= 50px><br>Title: ${movieTitle}<br>Overview: ${movieOverView}<br><a href="https://www.youtube.com/results?search_query=${movieTitle.split("+")}+${movieRelease}+movie+trailer" target="_blank">Trailer</a><br><br>`);
+        newLiMovie.html(`<img id="savedMovie" src=${moviePoster}><br>Title: ${movieTitle}<br><br>Overview: ${movieOverView}<br><br><a id="trailer" href="https://www.youtube.com/results?search_query=${movieTitle.split("+")}+${movieRelease}+movie+trailer" target="_blank">Trailer</a><br><br>`);
 
         $('#movieList').append(newLiMovie);
 

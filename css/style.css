@@ -1,0 +1,96 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+
+
+body {
+    background-image: url(https://www.themoviedb.org/t/p/w1280/3pyE6ZqDbuJi7zrNzzQzcKTWdmN.jpg);
+    background-position: 50% 15%;
+    position: relative;
+    margin: 3% 0 0 32%;
+}
+
+h1 {
+    font-family: 'Limelight', cursive;
+}
+
+h2 h4 p{
+    font-family: 'Noto Serif', serif;
+}
+
+main {
+    background-color: #f16155;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+form input {
+    margin: 0 0 0 5px; 
+}
+
+#results {
+    margin: 1%;
+}
+
+#results img {
+    width: 40%;
+    margin: 5px 0 0 30%;
+}
+
+#savedMovie {
+    width: 10%;
+}
+
+#savedMovies {
+    align-self: flex-start;
+}
+
+#movieList li {
+    margin: 5px 0 0 0;
+    padding: 5px;
+    list-style-type: none;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+#savedMovies {
+    margin: 0 5% 0 0;
+}
+
+#movTrailer {
+    margin: 5px;
+    padding: 2px;
+    border: 2px solid black;
+    border-radius: 2px;
+}
+
+#trailer {
+    padding: 2px;
+    border: 1px solid rgb(233, 183, 183);
+    border-radius: 2px;
+}
+
+button {
+    background-color: black;
+    color: white;
+    cursor: grab;
+}
+
+#submitForm {
+    background-color: black;
+    color: white;
+    cursor: grab;
+}
+
+#emailList {
+    margin: 50px 0 0 45%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
