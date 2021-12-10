@@ -51,8 +51,7 @@ async function getMovieData(e) {
     const addEmailButton = () => {
         let listString = "";
         for(x=0; x<emailList.length; x++){
-            listString += "Title: " + emailList[x]['title'] + " "; 
-            listString += "Overview: " + emailList[x]['overview'] + " [|] ";
+            listString += "Title: " + emailList[x]['title'] + " | "; 
         }
         const emailLink = $(`<a id="emailList" href="mailto:ADD EMAIL?&subject=Movie List&body=${listString}" target="_blank">Email List</a>`);
         $('#movieList').prepend(emailLink);
